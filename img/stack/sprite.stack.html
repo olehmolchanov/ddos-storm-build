@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-arrow-top-dims { width: 17px; height: 10px; }
+	.svg-bell-dims { width: 55px; height: 55px; }
+	.svg-bulb-dims { width: 29px; height: 29px; }
+	.svg-burger-dims { width: 26px; height: 18px; }
+	.svg-calendar-dims { width: 24px; height: 25px; }
+	.svg-calendar2-dims { width: 21px; height: 21px; }
+	.svg-cdn-dims { width: 108px; height: 108px; }
+	.svg-check-dims { width: 16px; height: 17px; }
+	.svg-check_circle-dims { width: 22px; height: 22px; }
+	.svg-chevron_left-dims { width: 40px; height: 40px; }
+	.svg-chevron_right-dims { width: 40px; height: 40px; }
+	.svg-close-dims { width: 24px; height: 24px; }
+	.svg-facebook-dims { width: 11px; height: 21px; }
+	.svg-file_blank-dims { width: 24px; height: 24px; }
+	.svg-instagram-dims { width: 21px; height: 21px; }
+	.svg-ip-dims { width: 108px; height: 108px; }
+	.svg-mail-dims { width: 31px; height: 31px; }
+	.svg-map_pin-dims { width: 31px; height: 31px; }
+	.svg-phone-dims { width: 31px; height: 30px; }
+	.svg-php-dims { width: 108px; height: 108px; }
+	.svg-q-dims { width: 21px; height: 22px; }
+	.svg-settings-dims { width: 24px; height: 24px; }
+	.svg-shield-dims { width: 108px; height: 108px; }
+	.svg-show-dims { width: 24px; height: 25px; }
+	.svg-support-dims { width: 105px; height: 106px; }
+	.svg-traffic-dims { width: 106px; height: 107px; }
+	.svg-twitter-dims { width: 26px; height: 20px; }
+	.svg-сhart_pie-dims { width: 24px; height: 24px; }
+	.svg-сlock-dims { width: 24px; height: 24px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+			
+<!--
+	
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.  
+
+-->
+
+			<ul>
+				
+				<li title="arrow-top">
+					<div class="icon-box">
+						
+						<!-- arrow-top -->
+						<img src="../sprite.svg#arrow-top" class="svg-arrow-top-dims" alt="arrow-top"/>
+						
+					</div>
+					<h2>arrow-top</h2>
+				</li>
+				<li title="bell">
+					<div class="icon-box">
+						
+						<!-- bell -->
+						<img src="../sprite.svg#bell" class="svg-bell-dims" alt="bell"/>
+						
+					</div>
+					<h2>bell</h2>
+				</li>
+				<li title="bulb">
+					<div class="icon-box">
+						
+						<!-- bulb -->
+						<img src="../sprite.svg#bulb" class="svg-bulb-dims" alt="bulb"/>
+						
+					</div>
+					<h2>bulb</h2>
+				</li>
+				<li title="burger">
+					<div class="icon-box">
+						
+						<!-- burger -->
+						<img src="../sprite.svg#burger" class="svg-burger-dims" alt="burger"/>
+						
+					</div>
+					<h2>burger</h2>
+				</li>
+				<li title="calendar">
+					<div class="icon-box">
+						
+						<!-- calendar -->
+						<img src="../sprite.svg#calendar" class="svg-calendar-dims" alt="calendar"/>
+						
+					</div>
+					<h2>calendar</h2>
+				</li>
+				<li title="calendar2">
+					<div class="icon-box">
+						
+						<!-- calendar2 -->
+						<img src="../sprite.svg#calendar2" class="svg-calendar2-dims" alt="calendar2"/>
+						
+					</div>
+					<h2>calendar2</h2>
+				</li>
+				<li title="cdn">
+					<div class="icon-box">
+						
+						<!-- cdn -->
+						<img src="../sprite.svg#cdn" class="svg-cdn-dims" alt="cdn"/>
+						
+					</div>
+					<h2>cdn</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+						
+						<!-- check -->
+						<img src="../sprite.svg#check" class="svg-check-dims" alt="check"/>
+						
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="check_circle">
+					<div class="icon-box">
+						
+						<!-- check_circle -->
+						<img src="../sprite.svg#check_circle" class="svg-check_circle-dims" alt="check_circle"/>
+						
+					</div>
+					<h2>check_circle</h2>
+				</li>
+				<li title="chevron_left">
+					<div class="icon-box">
+						
+						<!-- chevron_left -->
+						<img src="../sprite.svg#chevron_left" class="svg-chevron_left-dims" alt="chevron_left"/>
+						
+					</div>
+					<h2>chevron_left</h2>
+				</li>
+				<li title="chevron_right">
+					<div class="icon-box">
+						
+						<!-- chevron_right -->
+						<img src="../sprite.svg#chevron_right" class="svg-chevron_right-dims" alt="chevron_right"/>
+						
+					</div>
+					<h2>chevron_right</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<img src="../sprite.svg#close" class="svg-close-dims" alt="close"/>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="facebook">
+					<div class="icon-box">
+						
+						<!-- facebook -->
+						<img src="../sprite.svg#facebook" class="svg-facebook-dims" alt="facebook"/>
+						
+					</div>
+					<h2>facebook</h2>
+				</li>
+				<li title="file_blank">
+					<div class="icon-box">
+						
+						<!-- file_blank -->
+						<img src="../sprite.svg#file_blank" class="svg-file_blank-dims" alt="file_blank"/>
+						
+					</div>
+					<h2>file_blank</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<img src="../sprite.svg#instagram" class="svg-instagram-dims" alt="instagram"/>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="ip">
+					<div class="icon-box">
+						
+						<!-- ip -->
+						<img src="../sprite.svg#ip" class="svg-ip-dims" alt="ip"/>
+						
+					</div>
+					<h2>ip</h2>
+				</li>
+				<li title="mail">
+					<div class="icon-box">
+						
+						<!-- mail -->
+						<img src="../sprite.svg#mail" class="svg-mail-dims" alt="mail"/>
+						
+					</div>
+					<h2>mail</h2>
+				</li>
+				<li title="map_pin">
+					<div class="icon-box">
+						
+						<!-- map_pin -->
+						<img src="../sprite.svg#map_pin" class="svg-map_pin-dims" alt="map_pin"/>
+						
+					</div>
+					<h2>map_pin</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+						
+						<!-- phone -->
+						<img src="../sprite.svg#phone" class="svg-phone-dims" alt="phone"/>
+						
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="php">
+					<div class="icon-box">
+						
+						<!-- php -->
+						<img src="../sprite.svg#php" class="svg-php-dims" alt="php"/>
+						
+					</div>
+					<h2>php</h2>
+				</li>
+				<li title="q">
+					<div class="icon-box">
+						
+						<!-- q -->
+						<img src="../sprite.svg#q" class="svg-q-dims" alt="q"/>
+						
+					</div>
+					<h2>q</h2>
+				</li>
+				<li title="settings">
+					<div class="icon-box">
+						
+						<!-- settings -->
+						<img src="../sprite.svg#settings" class="svg-settings-dims" alt="settings"/>
+						
+					</div>
+					<h2>settings</h2>
+				</li>
+				<li title="shield">
+					<div class="icon-box">
+						
+						<!-- shield -->
+						<img src="../sprite.svg#shield" class="svg-shield-dims" alt="shield"/>
+						
+					</div>
+					<h2>shield</h2>
+				</li>
+				<li title="show">
+					<div class="icon-box">
+						
+						<!-- show -->
+						<img src="../sprite.svg#show" class="svg-show-dims" alt="show"/>
+						
+					</div>
+					<h2>show</h2>
+				</li>
+				<li title="support">
+					<div class="icon-box">
+						
+						<!-- support -->
+						<img src="../sprite.svg#support" class="svg-support-dims" alt="support"/>
+						
+					</div>
+					<h2>support</h2>
+				</li>
+				<li title="traffic">
+					<div class="icon-box">
+						
+						<!-- traffic -->
+						<img src="../sprite.svg#traffic" class="svg-traffic-dims" alt="traffic"/>
+						
+					</div>
+					<h2>traffic</h2>
+				</li>
+				<li title="twitter">
+					<div class="icon-box">
+						
+						<!-- twitter -->
+						<img src="../sprite.svg#twitter" class="svg-twitter-dims" alt="twitter"/>
+						
+					</div>
+					<h2>twitter</h2>
+				</li>
+				<li title="сhart_pie">
+					<div class="icon-box">
+						
+						<!-- сhart_pie -->
+						<img src="../sprite.svg#сhart_pie" class="svg-сhart_pie-dims" alt="сhart_pie"/>
+						
+					</div>
+					<h2>сhart_pie</h2>
+				</li>
+				<li title="сlock">
+					<div class="icon-box">
+						
+						<!-- сlock -->
+						<img src="../sprite.svg#сlock" class="svg-сlock-dims" alt="сlock"/>
+						
+					</div>
+					<h2>сlock</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Fri, 18 Mar 2022 08:17:08 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
